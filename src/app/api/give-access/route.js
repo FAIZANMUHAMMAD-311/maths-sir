@@ -17,7 +17,7 @@ const credentials = {
   client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL,
   universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
 };
-
+console.log(credentials)
 // Authenticate using the service account
 const auth = new google.auth.GoogleAuth({
   credentials,
