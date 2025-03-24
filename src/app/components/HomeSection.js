@@ -70,7 +70,7 @@ export default function HomeSection() {
           animation: marquee 20s linear infinite;
           display: inline-block;
           padding-left: 20%; /* Reduced padding to make the text start sooner */
-          animation-delay: -5s; /* Start the animation earlier */
+          animation-delay: -3s; /* Start the animation earlier */
         }
       `}</style>
     </section>
