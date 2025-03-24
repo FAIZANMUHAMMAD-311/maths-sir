@@ -19,7 +19,7 @@ export default function AboutSection() {
             <div className="w-full md:w-1/2 flex flex-col justify-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
               <p className="text-base sm:text-xl md:text-2xl font-bold text-blue-600 text-center md:text-left">Dedicated Maths Teacher</p>
               <p className="mt-2 sm:mt-4 text-xs sm:text-base md:text-lg text-gray-600 text-center md:text-left leading-relaxed">
-                I am a dedicated math tutor with over 5 years of experience in home tutoring and academy classes. I hold a BS and an MPhil in Mathematics from GC University, Faisalabad. My approach focuses on building a strong foundation in math and statistics while making learning engaging and accessible for students of all levels.
+                I am a dedicated math tutor with 5+ years of experience in home and academy tutoring. I hold a BS and MPhil in Mathematics from GC University, Faisalabad. My expertise lies in building a strong foundation in math and statistics while ensuring an engaging learning experience for students of all levels.
               </p>
               <p className="mt-5 sm:mt-8 text-base sm:text-xl md:text-2xl font-bold text-blue-600 text-center md:text-left">Currently Teaching</p>
               <div className="mt-3 sm:mt-6 grid grid-cols-2 gap-3 sm:gap-4 w-[90%] sm:w-full mx-auto">
