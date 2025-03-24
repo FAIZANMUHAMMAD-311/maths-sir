@@ -106,7 +106,7 @@ export default function HomeSection() {
           }
         }
         .animate-marquee {
-          animation: marquee 15s linear infinite;
+          animation: marquee 25s linear infinite;
           display: inline-block;
           min-width: 100%;
         }
