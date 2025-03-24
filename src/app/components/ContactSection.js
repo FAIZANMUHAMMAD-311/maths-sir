@@ -88,22 +88,22 @@ export default function ContactSection() {
                 />
                 <a 
                   href="tel:+92 304 6616905" 
-                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-lg font-medium"
+                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-base md:text-lg font-medium"
                 >
                   +92 304 6616905
                 </a>
               </div>
               
-              {/* Email */}
-              <div className="flex items-center justify-center md:justify-start w-full">
+              {/* Email - Modified for better mobile display */}
+              <div className="flex items-center justify-center md:justify-start">
                 <img 
                   src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
                   alt="Email Icon" 
-                  className="w-6 h-6 mr-3" 
+                  className="w-6 h-6 mr-3 flex-shrink-0" 
                 />
                 <a 
                   href="mailto:ibrarthemathematician@gmail.com" 
-                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-sm md:text-lg font-medium break-words"
+                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-sm sm:text-base md:text-lg font-medium break-all"
                 >
                   ibrarthemathematician@gmail.com
                 </a>
@@ -120,7 +120,7 @@ export default function ContactSection() {
                   href="https://www.linkedin.com/in/ibrar-tahir-2519b120a" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-lg font-medium"
+                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-base md:text-lg font-medium"
                 >
                   LinkedIn Profile
                 </a>
