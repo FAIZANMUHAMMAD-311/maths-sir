@@ -87,7 +87,7 @@ export default function CoursesSection() {
         /* Media query for mobile devices */
         @media (max-width: 640px) {
           .mobile-box {
-            width: 80%; /* Adjust this value to decrease the width of the boxes */
+            width: 70%; /* Adjust this value to decrease the width of the boxes */
           }
         }
       `}</style>
