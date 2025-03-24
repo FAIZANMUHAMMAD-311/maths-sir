@@ -20,8 +20,7 @@ export default function HomeSection() {
           Unlock Your Math Potential
         </h1>
         <p className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
-          just a paragraph and not that big to the point
-Professional math and physics tutoring tailored to your needs! I offer personalized support for Matric (Math, Physics), Intermediate (Math, Statistics), and Entrance Exam Prep, focusing on conceptual clarity, problem-solving, and exam strategies. Whether you're building basics or tackling advanced topics, I’ll help you succeed with structured lessons and practice materials. Let’s achieve your academic goals together!
+          Professional math and physics tutoring tailored to your needs! I offer personalized support for Matric (Math, Physics), Intermediate (Math, Statistics), and Entrance Exam Prep, focusing on conceptual clarity, problem-solving, and exam strategies. Whether you're building basics or tackling advanced topics, I’ll help you succeed with structured lessons and practice materials. Let’s achieve your academic goals together!
         </p>
         <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
           <a href="#hire" className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
