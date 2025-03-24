@@ -31,8 +31,7 @@ export default function HomeSection() {
   data-aos-duration="1000"
   data-aos-delay="200"
 >
-  Expert tutoring in math and physics for matric, math and statistics for intermediate, and entrance exam math preparation. Build a strong foundation and excel with structured, engaging lessons tailored to your needs.
-</p>
+ Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
 
         <div
           className="mt-12 flex flex-col sm:flex-row justify-center gap-4"
