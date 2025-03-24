@@ -51,7 +51,7 @@ export default function CoursesSection() {
               ].map((course) => (
                 <div
                   key={course.title}
-                  className="w-[90%] sm:w-full mx-auto bg-white bg-opacity-90 shadow-lg rounded-lg p-3 sm:p-5 text-center flex flex-col items-center justify-center transition-transform transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl"
+                  className="w-[90%] sm:w-full mx-auto bg-white bg-opacity-90 shadow-lg rounded-lg p-3 sm:p-5 text-center flex flex-col items-center justify-center transition-transform transform hover:scale-105 hover:-translate-y-1 hover:shadow-xl mobile-box"
                   data-aos="fade-up"
                   data-aos-delay={course.delay}
                 >
@@ -82,6 +82,13 @@ export default function CoursesSection() {
       <style jsx>{`
         .swipe-transition {
           transition: transform 0.5s ease-in-out;
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 640px) {
+          .mobile-box {
+            width: 80%; /* Adjust this value to decrease the width of the boxes */
+          }
         }
       `}</style>
     </div>
