@@ -55,6 +55,33 @@ export default function Footer() {
                 <li className="text-sm">Phone: +92 123 4567890</li>
                 <li className="text-sm">Location: Islamabad, Pakistan</li>
               </ul>
+              {/* Social Links */}
+              <div className="flex space-x-4 mt-4 text-3xl">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-200"
+                >
+                  <AiFillFacebook />
+                </a>
+                <a
+                  href="https://www.youtube.com/@IbrarTheMathematician"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-200"
+                >
+                  <AiFillYoutube />
+                </a>
+                <a
+                  href="https://www.tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-gray-200"
+                >
+                  <AiFillTikTok />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -62,46 +89,6 @@ export default function Footer() {
           <div className="text-center text-sm mt-6 text-white">
             <p>&copy; {currentYear} Math Tutor. All rights reserved.</p>
           </div>
-        </div>
-
-        {/* Floating Social Media Buttons */}
-        <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col gap-4 z-30">
-          {/* YouTube Floating Button */}
-          <a
-            href="https://www.youtube.com/@IbrarTheMathematician"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-red-600 text-white px-4 py-3 rounded-full flex items-center shadow-lg transition-all duration-300 hover:scale-110"
-          >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
-              alt="YouTube Logo"
-              className="w-5 sm:w-6 h-5 sm:h-6 block"
-            />
-            <span className="ml-2 text-sm sm:text-base font-semibold hidden sm:inline">YouTube</span>
-          </a>
-
-          {/* Facebook Floating Button */}
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-700 text-white px-4 py-3 rounded-full flex items-center shadow-lg transition-all duration-300 hover:scale-110"
-          >
-            <AiFillFacebook className="w-5 sm:w-6 h-5 sm:h-6 block" />
-            <span className="ml-2 text-sm sm:text-base font-semibold hidden sm:inline">Facebook</span>
-          </a>
-
-          {/* TikTok Floating Button */}
-          <a
-            href="https://www.tiktok.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white px-4 py-3 rounded-full flex items-center shadow-lg transition-all duration-300 hover:scale-110"
-          >
-            <AiFillTikTok className="w-5 sm:w-6 h-5 sm:h-6 block" />
-            <span className="ml-2 text-sm sm:text-base font-semibold hidden sm:inline">TikTok</span>
-          </a>
         </div>
       </footer>
     </div>
