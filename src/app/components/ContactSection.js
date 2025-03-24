@@ -44,17 +44,34 @@ export default function ContactSection() {
             <p className="text-gray-700 mb-6 leading-relaxed text-center md:text-left">
               If you have any questions or want to schedule a class, feel free to reach out anytime. Your satisfaction is my priority!
             </p>
-            <div className="space-y-5">
-              <div className="flex items-center justify-center md:justify-start">
-                <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Phone Icon" className="w-6 h-6 mr-3" />
-                <a href="tel:+92 304 6616905" className="text-gray-700 hover:text-blue-600 transition duration-300 text-lg font-medium">+92 304 6616905</a>
-              </div>
-              <div className="flex items-center justify-center md:justify-start w-full">
-                <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon" className="w-6 h-6 mr-3" />
-                <a href="mailto:ibrarthemathematician@gmail.com" className="text-gray-700 hover:text-blue-600 transition duration-300 text-sm md:text-lg font-medium break-words">
-                  ibrarthemathematician@gmail.com
-                </a>
-              </div>
+<div className="space-y-5">
+  <div className="flex items-center justify-center md:justify-start">
+    <img 
+      src="https://cdn-icons-png.flaticon.com/512/9946/9946341.png" 
+      alt="Phone Icon" 
+      className="w-6 h-6 mr-3" 
+    />
+    <a 
+      href="tel:+92 304 6616905" 
+      className="text-gray-700 hover:text-blue-600 transition duration-300 text-lg font-medium"
+    >
+      +92 304 6616905
+    </a>
+  </div>
+  <div className="flex items-center justify-center md:justify-start w-full">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
+      alt="Email Icon" 
+      className="w-6 h-6 mr-3" 
+    />
+    <a 
+      href="mailto:ibrarthemathematician@gmail.com" 
+      className="text-gray-700 hover:text-blue-600 transition duration-300 text-sm md:text-lg font-medium break-words"
+    >
+      ibrarthemathematician@gmail.com
+    </a>
+  </div>
+</div>
               <div className="flex items-center justify-center md:justify-start">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon" className="w-6 h-6 mr-3" />
                 <a href="https://www.linkedin.com/in/ibrar-tahir-2519b120a" target="_blank" className="text-gray-700 hover:text-blue-600 transition duration-300 text-lg font-medium">LinkedIn Profile</a>
