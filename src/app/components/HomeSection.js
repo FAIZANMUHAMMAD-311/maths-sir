@@ -14,9 +14,6 @@ export default function HomeSection() {
         </div>
       </div>
 
-      {/* Bar Behind YouTube Button */}
-      <div className="absolute bottom-0 left-0 w-full h-16 bg-black bg-opacity-50 z-20"></div>
-
       {/* YouTube Floating Button */}
       <a
         href="https://www.youtube.com/@IbrarTheMathematician"
