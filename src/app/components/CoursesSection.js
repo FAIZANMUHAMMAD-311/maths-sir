@@ -13,9 +13,9 @@ export default function CoursesSection() {
       {/* About Section */}
       <section
         id="about"
-        className={absolute inset-0 swipe-transition select-none ${
+        className={`absolute inset-0 swipe-transition select-none ${
           isCoursesVisible ? '-translate-x-full' : 'translate-x-0'
-        }}
+        }`}
       >
         <AboutSection />
       </section>
@@ -23,9 +23,9 @@ export default function CoursesSection() {
       {/* Courses Section */}
       <section
         id="courses"
-        className={absolute inset-0 swipe-transition select-none ${
+        className={`absolute inset-0 swipe-transition select-none ${
           isCoursesVisible ? 'translate-x-0' : 'translate-x-full'
-        }}
+        }`}
       >
         <div className="min-h-screen flex items-center justify-center bg-gray-100 py-6 sm:py-12 lg:py-16">
           <div className="container mx-auto px-4">
@@ -68,9 +68,9 @@ export default function CoursesSection() {
       {/* Swipe Button */}
       <button
         onClick={toggleSwipe}
-        className={absolute top-1/2 ${
+        className={`absolute top-1/2 ${
           isCoursesVisible ? 'left-4' : 'right-4'
-        } z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold mr-[15px]}
+        } z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold mr-[15px]`}
         style={{ transform: 'translateY(-190%)' }}
         data-aos="fade-up"
         data-aos-duration="1000"
@@ -79,7 +79,7 @@ export default function CoursesSection() {
       </button>
 
       {/* Swipe Transition Style */}
-      <style jsx>{
+      <style jsx>{`
         .swipe-transition {
           transition: transform 0.5s ease-in-out;
         }
@@ -87,10 +87,10 @@ export default function CoursesSection() {
         /* Media query for mobile devices */
         @media (max-width: 640px) {
           .mobile-box {
-            width: 70%; /* Adjust this value to decrease the width of the boxes */
+            width: 70%;
           }
         }
-      }</style>
+      `}</style>
     </div>
   );
 }
