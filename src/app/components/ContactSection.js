@@ -30,9 +30,45 @@ export default function ContactSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 select-none">
-          {/* Contact Form (unchanged) */}
+          {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
-            {/* ... keep existing form code ... */}
+            <h3 className="text-2xl font-semibold text-blue-600 mb-6 text-center md:text-left">Send a Message</h3>
+            <form onSubmit={sendToWhatsApp} className="space-y-4">
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Your Name" 
+                className="w-full p-3 rounded-lg text-gray-500 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600" 
+                required 
+              />
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Your Email" 
+                className="w-full p-3 rounded-lg border text-gray-500 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600" 
+                required 
+              />
+              <input 
+                type="text" 
+                name="class" 
+                placeholder="Your Class" 
+                className="w-full p-3 rounded-lg border text-gray-500 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600" 
+                required 
+              />
+              <textarea 
+                name="message" 
+                placeholder="Your Message" 
+                className="w-full p-3 rounded-lg border text-gray-500 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600" 
+                rows="4" 
+                required 
+              />
+              <button 
+                type="submit" 
+                className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300 w-full"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
 
           {/* Contact Information */}
