@@ -4,10 +4,10 @@ export default function Footer() {
       <div className="container mx-auto max-w-6xl px-4">
         {/* Flex container for three columns */}
         <div className="flex flex-col md:flex-row justify-between gap-8">
-          {/* Left Column: Quick Links */}
+          {/* Left Column: Quick Links - Now in single column */}
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-4 text-sm md:text-base">
+            <div className="flex flex-col gap-3 text-sm md:text-base">
               {['home', 'about', 'hire', 'faqs', 'access', 'contact'].map((section) => (
                 <a 
                   key={section} 
