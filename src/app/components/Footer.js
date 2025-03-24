@@ -4,62 +4,65 @@ export default function Footer() {
       <div className="container mx-auto max-w-6xl px-4">
         {/* Flex container for three columns */}
         <div className="flex flex-col md:flex-row justify-between gap-8">
-          {/* Left Column: Quick Links - Now in single column */}
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <div className="flex flex-col gap-3 text-sm md:text-base">
-              {['home', 'about', 'hire', 'faqs', 'access', 'contact'].map((section) => (
-                <a 
-                  key={section} 
-                  href={`#${section}`} 
-                  className="hover:text-gray-200 block"
-                >
-                  {section === 'about' ? 'About Me & Courses' : 
-                   section === 'access' ? 'Get Access' : 
-                   section === 'contact' ? 'Contact Me' : 
-                   section.charAt(0).toUpperCase() + section.slice(1)}
-                </a>
-              ))}
+          {/* Container for Quick Links + Get in Touch (side by side on mobile) */}
+          <div className="flex flex-row flex-wrap gap-8 md:flex-1 md:flex-nowrap">
+            {/* Left Column: Quick Links */}
+            <div className="flex-1 min-w-[160px]">
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <div className="flex flex-col gap-3 text-sm md:text-base">
+                {['home', 'about', 'hire', 'faqs', 'access', 'contact'].map((section) => (
+                  <a 
+                    key={section} 
+                    href={`#${section}`} 
+                    className="hover:text-gray-200 block"
+                  >
+                    {section === 'about' ? 'About Me & Courses' : 
+                     section === 'access' ? 'Get Access' : 
+                     section === 'contact' ? 'Contact Me' : 
+                     section.charAt(0).toUpperCase() + section.slice(1)}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Middle Column: Get in Touch */}
+            <div className="flex-1 min-w-[160px]">
+              <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
+              <div className="space-y-4">
+                {/* Phone Number */}
+                <div className="flex items-center">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/9946/9946341.png"
+                    alt="Phone Icon"
+                    className="w-6 h-6 mr-3"
+                  />
+                  <a
+                    href="tel:+92 304 6616905"
+                    className="text-white hover:text-gray-200 transition duration-300 text-sm md:text-base font-medium"
+                  >
+                    +92 304 6616905
+                  </a>
+                </div>
+
+                {/* Email Address */}
+                <div className="flex items-center">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                    alt="Email Icon"
+                    className="w-6 h-6 mr-3"
+                  />
+                  <a
+                    href="mailto:ibrarthemathematician@gmail.com"
+                    className="text-white hover:text-gray-200 transition duration-300 text-sm md:text-base font-medium break-words"
+                  >
+                    ibrarthemathematician@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Middle Column: Get in Touch */}
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
-            <div className="space-y-4">
-              {/* Phone Number */}
-              <div className="flex items-center">
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/9946/9946341.png"
-                  alt="Phone Icon"
-                  className="w-6 h-6 mr-3"
-                />
-                <a
-                  href="tel:+92 304 6616905"
-                  className="text-white hover:text-gray-200 transition duration-300 text-sm md:text-base font-medium"
-                >
-                  +92 304 6616905
-                </a>
-              </div>
-
-              {/* Email Address */}
-              <div className="flex items-center">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
-                  alt="Email Icon"
-                  className="w-6 h-6 mr-3"
-                />
-                <a
-                  href="mailto:ibrarthemathematician@gmail.com"
-                  className="text-white hover:text-gray-200 transition duration-300 text-sm md:text-base font-medium break-words"
-                >
-                  ibrarthemathematician@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Social Links */}
+          {/* Right Column: Social Links (stays full width on mobile) */}
           <div className="flex-1 md:max-w-[220px]">
             <h3 className="text-lg font-semibold mb-4">Social Links</h3>
             <div className="flex flex-col gap-4">
