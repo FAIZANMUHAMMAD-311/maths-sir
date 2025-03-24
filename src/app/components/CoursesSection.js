@@ -92,6 +92,14 @@ export default function CoursesSection() {
         </div>
       </section>
 
+        /* Media query for mobile devices */
+        @media (max-width: 640px) {
+          .mobile-box {
+            width: 70%;
+          }
+        }
+      }</style>
+
       {/* Swipe Button */}
       <button
         onClick={toggleSwipe}
