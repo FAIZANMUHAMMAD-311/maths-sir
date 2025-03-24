@@ -30,7 +30,7 @@ export default function Footer() {
               {/* Phone Number */}
               <div className="flex items-center">
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/455/455705.png"
+                  src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png"
                   alt="Phone Icon"
                   className="w-6 h-6 mr-3"
                 />
@@ -45,7 +45,7 @@ export default function Footer() {
               {/* Email Address */}
               <div className="flex items-center">
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
                   alt="Email Icon"
                   className="w-6 h-6 mr-3"
                 />
