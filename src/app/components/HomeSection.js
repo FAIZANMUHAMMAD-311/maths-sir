@@ -7,7 +7,7 @@ export default function HomeSection() {
     // Delay the appearance of the note by 2 seconds
     const timer = setTimeout(() => {
       setShowNote(true);
-    }, 2000);
+    }, 1000);
 
     // Cleanup the timer to avoid memory leaks
     return () => clearTimeout(timer);
