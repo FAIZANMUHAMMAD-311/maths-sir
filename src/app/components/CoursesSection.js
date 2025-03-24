@@ -6,15 +6,17 @@ import AboutSection from "./AboutSection";
 export default function CoursesSection() {
   const [isCoursesVisible, setIsCoursesVisible] = useState(false);
 
-  const toggleSwipe = () => setIsCoursesVisible(!isCoursesVisible);
+  const toggleSwipe = () => {
+    setIsCoursesVisible(!isCoursesVisible);
+  };
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* About Section */}
       <section
         id="about"
-        className={`absolute inset-0 swipe-transition select-none ${
-          isCoursesVisible ? "-translate-x-full" : "translate-x-0"
+        className={`absolute inset-0 transition-all duration-700 ease-in-out transform ${
+          isCoursesVisible ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"
         }`}
       >
         <AboutSection />
@@ -23,8 +25,8 @@ export default function CoursesSection() {
       {/* Courses Section */}
       <section
         id="courses"
-        className={`absolute inset-0 swipe-transition select-none ${
-          isCoursesVisible ? "translate-x-0" : "translate-x-full"
+        className={`absolute inset-0 transition-all duration-700 ease-in-out transform ${
+          isCoursesVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
         <div className="min-h-screen flex items-center justify-center bg-gray-100 py-6 sm:py-12 lg:py-16">
@@ -91,34 +93,19 @@ export default function CoursesSection() {
       </section>
 
       {/* Swipe Button */}
-<button
-  onClick={toggleSwipe}
-  className={`absolute top-1/2 z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold`}
-  style={{
-    transform: 'translateY(-50%)',
-    left: isCoursesVisible ? '1rem' : 'auto',
-    right: isCoursesVisible ? 'auto' : '1rem',
-  }}
-  data-aos="fade-up"
-  data-aos-duration="1000"
->
-  {isCoursesVisible ? '←' : '→'}
-</button>
-
-
-      {/* Swipe Transition Style */}
-      <style jsx>{`
-        .swipe-transition {
-          transition: transform 0.5s ease-in-out;
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 640px) {
-          .mobile-box {
-            width: 70%;
-          }
-        }
-      `}</style>
+      <button
+        onClick={toggleSwipe}
+        className={`absolute top-1/2 z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold`}
+        style={{
+          transform: "translateY(-50%)",
+          left: isCoursesVisible ? "1rem" : "auto",
+          right: isCoursesVisible ? "auto" : "1rem",
+        }}
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        {isCoursesVisible ? "←" : "→"}
+      </button>
     </div>
   );
 }
