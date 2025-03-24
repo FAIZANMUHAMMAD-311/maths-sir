@@ -4,10 +4,10 @@ export default function HomeSection() {
   const [showNote, setShowNote] = useState(false);
 
   useEffect(() => {
-    // Delay the appearance of the note by 1 second
+    // Show the note immediately (or with a very small delay if needed)
     const timer = setTimeout(() => {
       setShowNote(true);
-    }, 1000); // Adjust this delay as needed
+    }, 500); // Reduced delay to 500ms
 
     // Cleanup the timer to avoid memory leaks
     return () => clearTimeout(timer);
@@ -67,9 +67,10 @@ export default function HomeSection() {
           100% { transform: translateX(-100%); }
         }
         .animate-marquee {
-          animation: marquee 10s linear infinite; /* Reduced duration for faster looping */
+          animation: marquee 20s linear infinite;
           display: inline-block;
-          padding-left: 100%; /* Ensure the text starts off-screen */
+          padding-left: 20%; /* Reduced padding to make the text start sooner */
+          animation-delay: -5s; /* Start the animation earlier */
         }
       `}</style>
     </section>
