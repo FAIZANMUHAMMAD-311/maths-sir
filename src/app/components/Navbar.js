@@ -48,8 +48,10 @@ export default function Navbar() {
             (section) => (
               <li key={section}>
                 <a
-                  href={`#${section}`}
-                  onClick={(e) => handleSmoothScroll(e, `#${section}`)}
+                  href={`#${section === "about" ? "aboutme" : section}`}
+                  onClick={(e) =>
+                    handleSmoothScroll(e, `#${section === "about" ? "aboutme" : section}`)
+                  }
                   className="relative text-white text-lg font-medium transition-colors duration-300 hover:text-gray-200 group"
                 >
                   {section === "about"
@@ -88,8 +90,10 @@ export default function Navbar() {
               (section) => (
                 <li key={section} className="w-full text-center">
                   <a
-                    href={`#${section}`}
-                    onClick={(e) => handleSmoothScroll(e, `#${section}`)}
+                    href={`#${section === "about" ? "aboutme" : section}`}
+                    onClick={(e) =>
+                      handleSmoothScroll(e, `#${section === "about" ? "aboutme" : section}`)
+                    }
                     className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200 px-4"
                   >
                     {section === "about"
