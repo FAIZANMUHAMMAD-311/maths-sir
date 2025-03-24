@@ -1,4 +1,18 @@
+import { useEffect, useState } from 'react';
+
 export default function HomeSection() {
+  const [showNote, setShowNote] = useState(false);
+
+  useEffect(() => {
+    // Delay the appearance of the note by 2 seconds
+    const timer = setTimeout(() => {
+      setShowNote(true);
+    }, 2000);
+
+    // Cleanup the timer to avoid memory leaks
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="home" className="h-screen flex items-center justify-center bg-blue-600 text-white px-6 relative select-none overflow-x-hidden">
       <div className="text-center max-w-3xl">
@@ -15,11 +29,13 @@ export default function HomeSection() {
       </div>
 
       {/* Marquee Note */}
-      <div className="absolute bottom-20 left-0 w-full bg-transparent z-30 overflow-hidden">
-        <p className="whitespace-nowrap animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium">
-          NOTE: Online service is available only in Pakistan, and home tuition is offered only in Faisalabad.
-        </p>
-      </div>
+      {showNote && (
+        <div className="absolute bottom-20 left-0 w-full bg-transparent z-30 overflow-hidden">
+          <p className="whitespace-nowrap animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium">
+            NOTE: Online service is available only in Pakistan, and home tuition is offered only in Faisalabad.
+          </p>
+        </div>
+      )}
 
       {/* YouTube Floating Button */}
       <a
