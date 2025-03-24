@@ -95,21 +95,24 @@ export default function ContactSection() {
               </div>
               
               {/* Email - Modified to break at @ */}
-              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start">
-                <div className="flex items-center mb-1 sm:mb-0">
-                  <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
-                    alt="Email Icon" 
-                    className="w-6 h-6 mr-3 flex-shrink-0" 
-                  />
-                  <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium">
-                    ibrarthemathematician
-                  </span>
-                </div>
-                <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium sm:ml-0 ml-9 sm:pl-0 pl-9">
+  {/* Email - Properly centered version */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center w-full">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
+                alt="Email Icon" 
+                className="w-6 h-6 mr-3 flex-shrink-0" 
+              />
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium text-center sm:text-left">
+                  ibrarthemathematician
+                </span>
+                <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium text-center sm:text-left sm:ml-0">
                   @gmail.com
                 </span>
               </div>
+            </div>
+          </div>
               
               {/* LinkedIn */}
               <div className="flex items-center justify-center md:justify-start">
