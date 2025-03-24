@@ -1,22 +1,31 @@
 export default function Footer() {
   return (
     <footer className="bg-blue-600 text-white py-8 select-none">
-      <div className="container mx-auto max-w-4xl px-4">
-        {/* Flex container for Quick Links and Social Links */}
+      <div className="container mx-auto max-w-6xl px-4">
+        {/* Flex container for three columns */}
         <div className="flex flex-col md:flex-row justify-between gap-8">
-          {/* Left Side: Quick Links and Get in Touch */}
+          {/* Left Column: Quick Links */}
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <div className="grid grid-cols-2 gap-4 text-sm md:text-base">
               {['home', 'about', 'hire', 'faqs', 'access', 'contact'].map((section) => (
-                <a key={section} href={`#${section}`} className="hover:text-gray-200 block">
-                  {section === 'about' ? 'About Me & Courses' : section === 'access' ? 'Get Access' : section === 'contact' ? 'Contact Me' : section.charAt(0).toUpperCase() + section.slice(1)}
+                <a 
+                  key={section} 
+                  href={`#${section}`} 
+                  className="hover:text-gray-200 block"
+                >
+                  {section === 'about' ? 'About Me & Courses' : 
+                   section === 'access' ? 'Get Access' : 
+                   section === 'contact' ? 'Contact Me' : 
+                   section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
               ))}
             </div>
+          </div>
 
-            {/* Get in Touch Section */}
-            <h3 className="text-lg font-semibold mt-8 mb-4">Get in Touch</h3>
+          {/* Middle Column: Get in Touch */}
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-4">
               {/* Phone Number */}
               <div className="flex items-center">
@@ -50,11 +59,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Side: Social Links */}
-          <div className="flex-1 md:max-w-[200px]">
+          {/* Right Column: Social Links */}
+          <div className="flex-1 md:max-w-[220px]">
             <h3 className="text-lg font-semibold mb-4">Social Links</h3>
             <div className="flex flex-col gap-4">
-              {/* YouTube Floating Button */}
+              {/* YouTube Button */}
               <a
                 href="https://www.youtube.com/@IbrarTheMathematician"
                 target="_blank"
@@ -69,7 +78,7 @@ export default function Footer() {
                 <span className="text-sm font-semibold">YouTube</span>
               </a>
 
-              {/* LinkedIn Floating Button */}
+              {/* LinkedIn Button */}
               <a
                 href="https://www.linkedin.com/in/ibrar-tahir-2519b120a"
                 target="_blank"
