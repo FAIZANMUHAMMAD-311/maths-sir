@@ -25,16 +25,15 @@ export default function HomeSection() {
         >
           Unlock Your Math Potential
         </h1>
-        <p
-          className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto"
-          data-aos="fade-left"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          Professional math tutoring tailored to your needs. Whether you&apos;re
-          struggling with basics or aiming for advanced concepts, I&apos;m here
-          to help you succeed.
-        </p>
+<p
+  className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto"
+  data-aos="fade-left"
+  data-aos-duration="1000"
+  data-aos-delay="200"
+>
+  Expert tutoring in math and physics for matric, math and statistics for intermediate, and entrance exam math preparation. Build a strong foundation and excel with structured, engaging lessons tailored to your needs.
+</p>
+
         <div
           className="mt-12 flex flex-col sm:flex-row justify-center gap-4"
           data-aos="fade-up"
