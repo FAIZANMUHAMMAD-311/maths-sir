@@ -36,7 +36,8 @@ export default function Navbar() {
           />
           <a
             href="#home"
-            className="text-white text-2xl font-bold hover:text-gray-200 transition duration-300"
+            onClick={(e) => handleSmoothScroll(e, "#home")}
+            className="text-white text-2xl font-bold hover:text-gray-200 transition duration-300 cursor-pointer"
           >
             Ibrar Tahir
           </a>
@@ -50,7 +51,10 @@ export default function Navbar() {
                 <a
                   href={`#${section === "about" ? "aboutme" : section}`}
                   onClick={(e) =>
-                    handleSmoothScroll(e, `#${section === "about" ? "aboutme" : section}`)
+                    handleSmoothScroll(
+                      e,
+                      `#${section === "about" ? "aboutme" : section}`
+                    )
                   }
                   className="relative text-white text-lg font-medium transition-colors duration-300 hover:text-gray-200 group"
                 >
@@ -92,7 +96,10 @@ export default function Navbar() {
                   <a
                     href={`#${section === "about" ? "aboutme" : section}`}
                     onClick={(e) =>
-                      handleSmoothScroll(e, `#${section === "about" ? "aboutme" : section}`)
+                      handleSmoothScroll(
+                        e,
+                        `#${section === "about" ? "aboutme" : section}`
+                      )
                     }
                     className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200 px-4"
                   >
