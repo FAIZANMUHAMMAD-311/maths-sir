@@ -94,19 +94,21 @@ export default function ContactSection() {
                 </a>
               </div>
               
-              {/* Email - Modified for better mobile display */}
-              <div className="flex items-center justify-center md:justify-start">
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
-                  alt="Email Icon" 
-                  className="w-6 h-6 mr-3 flex-shrink-0" 
-                />
-                <a 
-                  href="mailto:ibrarthemathematician@gmail.com" 
-                  className="text-gray-700 hover:text-blue-600 transition duration-300 text-sm sm:text-base md:text-lg font-medium break-all"
-                >
-                  ibrarthemathematician@gmail.com
-                </a>
+              {/* Email - Modified to break at @ */}
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start">
+                <div className="flex items-center mb-1 sm:mb-0">
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
+                    alt="Email Icon" 
+                    className="w-6 h-6 mr-3 flex-shrink-0" 
+                  />
+                  <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium">
+                    ibrarthemathematician
+                  </span>
+                </div>
+                <span className="text-gray-700 text-sm sm:text-base md:text-lg font-medium sm:ml-0 ml-9 sm:pl-0 pl-9">
+                  @gmail.com
+                </span>
               </div>
               
               {/* LinkedIn */}
