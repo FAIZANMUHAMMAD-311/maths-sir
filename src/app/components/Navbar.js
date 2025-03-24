@@ -8,7 +8,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-blue-600 p-4 fixed w-full top-0 z-50 shadow-lg select-none overflow-x-hidden" data-aos="fade-down" data-aos-duration="800">
+    <nav className="bg-blue-600 p-4 fixed w-full top-0 z-50 shadow-lg select-none" data-aos="fade-down" data-aos-duration="800">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center w-full px-4">
         <div className="flex items-center space-x-3">
           <img src="/images/study.png" alt="Logo" className="h-12 w-12" draggable="false" />
@@ -26,7 +26,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="md:hidden ml-auto select-none">
+        <div className="md:hidden flex items-center">
           <button 
             onClick={toggleMenu} 
             className="text-white text-3xl focus:outline-none"
@@ -37,13 +37,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} absolute top-16 left-0 w-full bg-blue-600 shadow-lg md:hidden transition-all duration-300 ease-in-out select-none`}>
+        <div className={`${isMenuOpen ? 'block' : 'hidden'} fixed top-16 left-0 right-0 bg-blue-600 shadow-lg md:hidden transition-all duration-300 ease-in-out select-none z-50`}>
           <ul className="flex flex-col items-center space-y-2 py-4 w-full">
             {['home', 'about', 'hire', 'faqs', 'access', 'contact'].map((section) => (
               <li key={section} className="w-full text-center">
                 <a 
                   href={`#${section}`} 
-                  className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200" 
+                  className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200 px-4" 
                   onClick={toggleMenu}
                 >
                   {section === 'about' ? 'About Me & Courses' : section === 'access' ? 'Get Access' : section === 'contact' ? 'Contact Me' : section.charAt(0).toUpperCase() + section.slice(1)}
