@@ -30,7 +30,7 @@ export default function Footer() {
               {/* Phone Number */}
               <div className="flex items-center">
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/126/126341.png"
+                  src="https://cdn-icons-png.flaticon.com/512/9946/9946341.png"
                   alt="Phone Icon"
                   className="w-6 h-6 mr-3"
                 />
