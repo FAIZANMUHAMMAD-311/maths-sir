@@ -66,17 +66,21 @@ export default function CoursesSection() {
       </section>
 
       {/* Swipe Button */}
-      <button
-        onClick={toggleSwipe}
-        className={`absolute top-1/2 ${
-          isCoursesVisible ? 'left-4' : 'right-4'
-        } z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold mr-[15px]`}
-        style={{ transform: 'translateY(-190%)' }}
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
-        {isCoursesVisible ? '←' : '→'}
-      </button>
+<button
+  onClick={toggleSwipe}
+  className={`absolute top-1/2 ${
+    isCoursesVisible ? 'left-4' : 'right-4'
+  } z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold mr-[15px]`}
+  style={{
+    transform: 'translateY(-190%)',
+    willChange: 'transform, background-color',
+  }}
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  {isCoursesVisible ? '←' : '→'}
+</button>
+
 
       {/* Swipe Transition Style */}
       <style jsx>{`
