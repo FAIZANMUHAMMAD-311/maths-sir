@@ -1,6 +1,6 @@
 export default function HomeSection() {
   return (
-    <section id="home" className="h-screen flex items-center justify-center bg-blue-600 text-white px-6 relative select-none">
+    <section id="home" className="h-screen flex items-center justify-center bg-blue-600 text-white px-6 relative select-none overflow-x-hidden">
       <div className="text-center max-w-3xl">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight" data-aos="fade-right" data-aos-duration="1000">
           Unlock Your Math Potential
@@ -12,6 +12,13 @@ export default function HomeSection() {
           <a href="#hire" className="bg-white text-blue-600 px-6 sm:px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
           <a href="#access" className="bg-transparent border border-white px-6 sm:px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">Get Access</a>
         </div>
+      </div>
+
+      {/* Marquee Note */}
+      <div className="absolute bottom-20 left-0 w-full bg-transparent z-30 overflow-hidden">
+        <p className="whitespace-nowrap animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium">
+          NOTE: Online service is available only in Pakistan, and home tuition is offered only in Faisalabad.
+        </p>
       </div>
 
       {/* YouTube Floating Button */}
@@ -45,6 +52,8 @@ export default function HomeSection() {
         }
         .animate-marquee {
           animation: marquee 20s linear infinite;
+          display: inline-block;
+          padding-left: 100%; /* Ensure the text starts off-screen */
         }
       `}</style>
     </section>
