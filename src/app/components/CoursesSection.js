@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import AboutSection from "./AboutSection";
+import { useState } from 'react';
+import AboutSection from './AboutSection';
 
 export default function CoursesSection() {
   const [isCoursesVisible, setIsCoursesVisible] = useState(false);
@@ -10,17 +10,30 @@ export default function CoursesSection() {
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Swipe Container */}
-      <div className="relative w-full h-full flex transition-transform duration-500 ease-in-out" style={{ transform: isCoursesVisible ? "translateX(-100%)" : "translateX(0)" }}>
-        {/* About Section */}
-        <section id="about" className="absolute w-full h-full flex-shrink-0 select-none">
-          <AboutSection />
-        </section>
+      {/* About Section */}
+      <section
+        id="about"
+        className={absolute inset-0 swipe-transition select-none ${
+          isCoursesVisible ? '-translate-x-full' : 'translate-x-0'
+        }}
+      >
+        <AboutSection />
+      </section>
 
-        {/* Courses Section */}
-        <section id="courses" className="absolute w-full h-full flex-shrink-0 bg-gray-100 flex items-center justify-center">
+      {/* Courses Section */}
+      <section
+        id="courses"
+        className={absolute inset-0 swipe-transition select-none ${
+          isCoursesVisible ? 'translate-x-0' : 'translate-x-full'
+        }}
+      >
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 py-6 sm:py-12 lg:py-16">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-10 sm:mb-14" data-aos="fade-up" data-aos-duration="1000">
+            <div
+              className="text-center mb-10 sm:mb-14"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600">
                 Courses We Offer
               </h2>
@@ -31,10 +44,10 @@ export default function CoursesSection() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pb-6">
               {[
-                { title: "Matriculation Part 1", subjects: "Math & Physics", class: "Class 9", delay: 100 },
-                { title: "Matriculation Part 2", subjects: "Math & Physics", class: "Class 10", delay: 200 },
-                { title: "Intermediate Part 1", subjects: "Math & Statistics", class: "Class 11", delay: 300 },
-                { title: "Intermediate Part 2", subjects: "Math & Statistics", class: "Class 12", delay: 400 },
+                { title: 'Matriculation Part 1', subjects: 'Math & Physics', class: 'Class 9', delay: 100 },
+                { title: 'Matriculation Part 2', subjects: 'Math & Physics', class: 'Class 10', delay: 200 },
+                { title: 'Intermediate Part 1', subjects: 'Math & Statistics', class: 'Class 11', delay: 300 },
+                { title: 'Intermediate Part 2', subjects: 'Math & Statistics', class: 'Class 12', delay: 400 },
               ].map((course) => (
                 <div
                   key={course.title}
@@ -49,28 +62,35 @@ export default function CoursesSection() {
               ))}
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       {/* Swipe Button */}
       <button
         onClick={toggleSwipe}
-        className="fixed top-1/2 transform -translate-y-1/2 z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold"
-        style={{ left: isCoursesVisible ? "15px" : "auto", right: isCoursesVisible ? "auto" : "15px" }}
+        className={absolute top-1/2 ${
+          isCoursesVisible ? 'left-4' : 'right-4'
+        } z-10 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 w-10 h-10 flex items-center justify-center text-lg sm:w-12 sm:h-12 sm:text-2xl font-bold mr-[15px]}
+        style={{ transform: 'translateY(-190%)' }}
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        {isCoursesVisible ? "←" : "→"}
+        {isCoursesVisible ? '←' : '→'}
       </button>
 
-      {/* Mobile Styles */}
-      <style jsx>{`
+      {/* Swipe Transition Style */}
+      <style jsx>{
+        .swipe-transition {
+          transition: transform 0.5s ease-in-out;
+        }
+
+        /* Media query for mobile devices */
         @media (max-width: 640px) {
           .mobile-box {
-            width: 70%;
+            width: 70%; /* Adjust this value to decrease the width of the boxes */
           }
         }
-      `}</style>
+      }</style>
     </div>
   );
 }
