@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container mx-auto max-w-4xl px-4">
         {/* Flex container for Quick Links and Social Links */}
         <div className="flex flex-col md:flex-row justify-between">
-          {/* Left Side: Quick Links */}
+          {/* Left Side: Quick Links and Get in Touch */}
           <div className="mb-8 md:mb-0">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <div className="flex flex-wrap gap-4 text-sm md:text-base">
@@ -13,6 +13,40 @@ export default function Footer() {
                   {section === 'about' ? 'About Me & Courses' : section === 'access' ? 'Get Access' : section === 'contact' ? 'Contact Me' : section.charAt(0).toUpperCase() + section.slice(1)}
                 </a>
               ))}
+            </div>
+
+            {/* Get in Touch Section */}
+            <h3 className="text-lg font-semibold mt-8 mb-4">Get in Touch</h3>
+            <div className="space-y-4">
+              {/* Phone Number */}
+              <div className="flex items-center justify-center md:justify-start">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/455/455705.png"
+                  alt="Phone Icon"
+                  className="w-6 h-6 mr-3"
+                />
+                <a
+                  href="tel:+92 304 6616905"
+                  className="text-white hover:text-gray-200 transition duration-300 text-lg font-medium"
+                >
+                  +92 304 6616905
+                </a>
+              </div>
+
+              {/* Email Address */}
+              <div className="flex items-center justify-center md:justify-start">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                  alt="Email Icon"
+                  className="w-6 h-6 mr-3"
+                />
+                <a
+                  href="mailto:ibrarthemathematician@gmail.com"
+                  className="text-white hover:text-gray-200 transition duration-300 text-sm md:text-lg font-medium break-words"
+                >
+                  ibrarthemathematician@gmail.com
+                </a>
+              </div>
             </div>
           </div>
 
