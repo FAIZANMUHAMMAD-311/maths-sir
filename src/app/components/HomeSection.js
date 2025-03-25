@@ -4,11 +4,9 @@ export default function HomeSection() {
   const [showNote, setShowNote] = useState(false);
 
   useEffect(() => {
-    // Show the note after a short delay
     const timer = setTimeout(() => {
       setShowNote(true);
     }, 500);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -19,22 +17,24 @@ export default function HomeSection() {
     >
       <div className="text-center max-w-3xl w-full px-4">
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight break-words"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
           Unlock Your Math Potential
         </h1>
         <p
-          className="mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-gray-200 mx-auto text-justify sm:text-center"
+          className="mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-gray-200 mx-auto text-justify sm:text-center break-words"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="200"
         >
-          Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
+          Expert tutoring in matric math & physics, intermediate math &
+          statistics, and entrance exam math prep. Build a strong foundation
+          with structured, engaging lessons tailored to your needs.
         </p>
         <div
-          className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4"
+          className="mt-10 sm:mt-12 flex flex-wrap justify-center gap-3 sm:gap-4"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="400"
@@ -56,8 +56,8 @@ export default function HomeSection() {
 
       {/* Marquee Note */}
       {showNote && (
-        <div className="absolute bottom-20 left-0 w-full overflow-hidden z-30 px-4">
-          <p className="animate-marquee text-sm sm:text-base md:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap">
+        <div className="absolute bottom-[clamp(3rem, 5vw, 5rem)] left-0 w-full overflow-hidden z-30 px-4">
+          <p className="animate-marquee text-sm sm:text-base md:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap w-max">
             NOTE: Online service is available only in Pakistan, and home tuition
             is offered only in Faisalabad.
           </p>
@@ -99,7 +99,7 @@ export default function HomeSection() {
       <style jsx>{`
         @keyframes marquee {
           0% {
-            transform: translateX(100vw);
+            transform: translateX(100%);
           }
           100% {
             transform: translateX(-100%);
@@ -108,7 +108,6 @@ export default function HomeSection() {
         .animate-marquee {
           animation: marquee 25s linear infinite;
           display: inline-block;
-          min-width: 100%;
         }
       `}</style>
     </section>
