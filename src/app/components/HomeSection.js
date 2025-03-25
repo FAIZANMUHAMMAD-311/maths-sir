@@ -10,13 +10,35 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Inline style for the animation
+  const marqueeStyle = {
+    animation: 'marquee 1.5s ease-out forwards',
+    opacity: showNote ? 1 : 0
+  };
+
   return (
-    <div className="overflow-hidden">
+    <div style={{ overflowX: 'hidden' }}>
+      {/* Inline style for keyframes */}
+      <style>
+        {`
+          @keyframes marquee {
+            0% {
+              transform: translateX(100%);
+              opacity: 0;
+            }
+            100% {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
+
       <section
         id="home"
-        className="h-screen flex items-center justify-center bg-blue-600 text-white px-6 relative select-none overflow-hidden w-full"
+        className="h-screen flex items-center justify-center bg-blue-600 text-white px-6 relative select-none w-full"
       >
-        <div className="text-center max-w-3xl">
+        <div className="text-center max-w-3xl mx-auto">
           <h1
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
             data-aos="fade-right"
@@ -53,9 +75,17 @@ export default function HomeSection() {
               Get Access
             </a>
           </div>
+
+          {/* Service Note with inline style */}
+          <div 
+            className="mt-8 text-sm sm:text-base text-gray-200 bg-blue-700/50 px-4 py-2 rounded-lg overflow-hidden"
+            style={marqueeStyle}
+          >
+            <span className="inline-block whitespace-nowrap">
+              NOTE: Online service is available only in Pakistan, and home tuition is offered only in Faisalabad.
+            </span>
+          </div>
         </div>
-
-
 
         {/* YouTube Floating Button */}
         <a
@@ -89,7 +119,6 @@ export default function HomeSection() {
           </span>
         </a>
       </section>
-
     </div>
   );
 }
