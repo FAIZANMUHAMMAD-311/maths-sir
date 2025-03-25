@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,9 +8,9 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // Smooth Scrolling Function
-  const handleSmoothScroll = (event, section) => {
+  const handleSmoothScroll = (event, sectionId) => {
     event.preventDefault();
-    const targetSection = document.querySelector(section);
+    const targetSection = document.getElementById(sectionId);
     if (targetSection) {
       window.scrollTo({
         top: targetSection.offsetTop - 80, // Adjust for fixed navbar height
@@ -19,6 +19,17 @@ export default function Navbar() {
       setIsMenuOpen(false); // Close mobile menu after clicking
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <nav
@@ -36,7 +47,7 @@ export default function Navbar() {
           />
           <a
             href="#home"
-            onClick={(e) => handleSmoothScroll(e, "#home")}
+            onClick={(e) => handleSmoothScroll(e, "home")}
             className="text-white text-2xl font-bold hover:text-gray-200 transition duration-300 cursor-pointer"
           >
             Ibrar Tahir
@@ -45,31 +56,25 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-10 select-none">
-          {["home", "about", "hire", "faqs", "access", "contact"].map(
-            (section) => (
-              <li key={section}>
-                <a
-                  href={`#${section === "about" ? "aboutme" : section}`}
-                  onClick={(e) =>
-                    handleSmoothScroll(
-                      e,
-                      `#${section === "about" ? "aboutme" : section}`
-                    )
-                  }
-                  className="relative text-white text-lg font-medium transition-colors duration-300 hover:text-gray-200 group"
-                >
-                  {section === "about"
-                    ? "About Me & Courses"
-                    : section === "access"
-                    ? "Get Access"
-                    : section === "contact"
-                    ? "Contact Me"
-                    : section.charAt(0).toUpperCase() + section.slice(1)}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-200 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-            )
-          )}
+          {[
+            { id: "home", label: "Home" },
+            { id: "about", label: "About Me & Courses" },
+            { id: "hire", label: "Hire Me" },
+            { id: "faqs", label: "FAQs" },
+            { id: "access", label: "Get Access" },
+            { id: "contact", label: "Contact Me" },
+          ].map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={(e) => handleSmoothScroll(e, id)}
+                className="relative text-white text-lg font-medium transition-colors duration-300 hover:text-gray-200 group"
+              >
+                {label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-200 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Menu Button */}
@@ -90,30 +95,24 @@ export default function Navbar() {
           } fixed top-16 left-0 right-0 bg-blue-600 shadow-lg md:hidden transition-all duration-300 ease-in-out select-none z-50`}
         >
           <ul className="flex flex-col items-center space-y-2 py-4 w-full">
-            {["home", "about", "hire", "faqs", "access", "contact"].map(
-              (section) => (
-                <li key={section} className="w-full text-center">
-                  <a
-                    href={`#${section === "about" ? "aboutme" : section}`}
-                    onClick={(e) =>
-                      handleSmoothScroll(
-                        e,
-                        `#${section === "about" ? "aboutme" : section}`
-                      )
-                    }
-                    className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200 px-4"
-                  >
-                    {section === "about"
-                      ? "About Me & Courses"
-                      : section === "access"
-                      ? "Get Access"
-                      : section === "contact"
-                      ? "Contact Me"
-                      : section.charAt(0).toUpperCase() + section.slice(1)}
-                  </a>
-                </li>
-              )
-            )}
+            {[
+              { id: "home", label: "Home" },
+              { id: "about", label: "About Me & Courses" },
+              { id: "hire", label: "Hire Me" },
+              { id: "faqs", label: "FAQs" },
+              { id: "access", label: "Get Access" },
+              { id: "contact", label: "Contact Me" },
+            ].map(({ id, label }) => (
+              <li key={id} className="w-full text-center">
+                <a
+                  href={`#${id}`}
+                  onClick={(e) => handleSmoothScroll(e, id)}
+                  className="block text-white py-2 w-full hover:bg-blue-700 transition-colors duration-200 px-4"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
