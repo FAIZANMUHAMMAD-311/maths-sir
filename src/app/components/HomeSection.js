@@ -17,7 +17,7 @@ export default function HomeSection() {
       id="home"
       className="h-screen flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 relative select-none overflow-hidden"
     >
-      <div className="text-center max-w-3xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto w-full">
         <h1
           className="text-3xl sm:text-5xl md:text-6xl font-bold leading-tight"
           data-aos="fade-right"
@@ -25,13 +25,14 @@ export default function HomeSection() {
         >
           Unlock Your Math Potential
         </h1>
-        <div className="flex justify-center">
+        
+        {/* Paragraph container with fixed height for exactly 3 lines */}
+        <div className="mt-6 h-[4.5rem] sm:h-[5.4rem] md:h-[6.3rem] flex items-center justify-center">
           <p
-            className="mt-6 text-base sm:text-xl md:text-2xl text-gray-200 mx-auto text-justify leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-200 mx-auto text-justify leading-relaxed w-full max-w-2xl px-4"
             data-aos="fade-left"
             data-aos-duration="1000"
             data-aos-delay="200"
-            style={{ maxWidth: '100%' }}
           >
             Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
           </p>
