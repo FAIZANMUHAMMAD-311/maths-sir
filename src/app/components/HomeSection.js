@@ -55,15 +55,7 @@ export default function HomeSection() {
           </div>
         </div>
 
-        {/* Marquee Note */}
-        {showNote && (
-          <div className="absolute bottom-20 left-0 w-full overflow-hidden z-30">
-            <p className="animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap max-w-full">
-              NOTE: Online service is available only in Pakistan, and home
-              tuition is offered only in Faisalabad.
-            </p>
-          </div>
-        )}
+
 
         {/* YouTube Floating Button */}
         <a
@@ -98,27 +90,6 @@ export default function HomeSection() {
         </a>
       </section>
 
-      <style jsx>{`
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          overflow-x: hidden;
-        }
-        @keyframes marquee {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 25s linear infinite;
-          display: inline-block;
-          max-width: 100%;
-        }
-      `}</style>
     </div>
   );
 }
