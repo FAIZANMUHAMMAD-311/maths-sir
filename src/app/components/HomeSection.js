@@ -8,7 +8,6 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Smooth scroll function
   const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
     const targetElement = document.querySelector(targetId);
@@ -23,8 +22,9 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="h-screen flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 relative select-none overflow-hidden"
+      className="h-screen w-full flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 relative select-none overflow-hidden"
     >
+      {/* Main Content */}
       <div className="text-center max-w-3xl mx-auto w-full px-4">
         <h1
           className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
@@ -68,7 +68,7 @@ export default function HomeSection() {
 
       {/* Marquee Note */}
       {showNote && (
-        <div className="absolute bottom-16 sm:bottom-20 left-0 w-full overflow-hidden z-30 bg-blue-700/30 py-2">
+        <div className="absolute bottom-16 sm:bottom-20 left-0 right-0 w-screen overflow-hidden z-30 bg-blue-700/30 py-2">
           <div className="marquee-container">
             <p className="marquee-text">
               NOTE: Online service is available only in Pakistan, and home tuition is offered only in Faisalabad.
@@ -83,11 +83,13 @@ export default function HomeSection() {
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-red-600 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-full flex items-center shadow-lg transition-transform duration-300 hover:scale-110 z-30"
+        aria-label="YouTube Channel"
       >
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png"
           alt="YouTube Logo"
           className="w-5 sm:w-6 h-5 sm:h-6 block"
+          loading="lazy"
         />
         <span className="ml-2 text-sm sm:text-base font-semibold hidden sm:inline">
           YouTube
@@ -96,56 +98,95 @@ export default function HomeSection() {
 
       {/* Phone Floating Button */}
       <a
-        href="tel:+92 304 6616905"
+        href="tel:+923046616905"
         className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 text-white px-3 sm:px-4 py-2 sm:py-3 rounded-full flex items-center shadow-lg transition-transform duration-300 hover:scale-110 animate-pulse z-30"
+        aria-label="Call Now"
       >
         <img
           src="/images/phone-call.png"
           alt="Call Logo"
           className="w-5 sm:w-6 h-5 sm:h-6 block"
+          loading="lazy"
         />
         <span className="ml-2 text-sm sm:text-base font-semibold">
           +92 304 6616905
         </span>
       </a>
 
-  <style jsx>{`
-    .marquee-container {
-      display: flex;
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
-    }
+      {/* Background Elements (optional) */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-36 h-36 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
 
-    .marquee-text {
-      display: inline-block;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      animation: marquee 20s linear infinite;
-      min-width: 100%;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+      <style jsx>{`
+        .marquee-container {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+        }
 
-    @keyframes marquee {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
+        .marquee-text {
+          display: inline-block;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.9);
+          font-weight: 500;
+          animation: marquee 20s linear infinite;
+          padding-left: 100%;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
 
-    @media (max-width: 640px) {
-      .text-center p {
-        text-align: justify;
-        text-align-last: center;
-        hyphens: auto;
-        word-spacing: -0.05em;
-      }
-    }
-  `}</style>
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+
+        @media (max-width: 640px) {
+          .text-center p {
+            text-align: justify;
+            text-align-last: center;
+            hyphens: auto;
+            word-spacing: -0.05em;
+          }
+          
+          .marquee-text {
+            font-size: 0.8rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }
