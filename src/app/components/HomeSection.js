@@ -15,7 +15,7 @@ export default function HomeSection() {
   return (
     <section
       id="home"
-      className="h-screen flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 relative select-none overflow-hidden"
+      className="h-screen flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 relative select-none overflow-hidden overflow-x-hidden"
     >
       <div className="text-center max-w-3xl mx-auto w-full">
         <h1
@@ -62,10 +62,15 @@ export default function HomeSection() {
       {/* Marquee Note */}
       {showNote && (
         <div className="absolute bottom-16 sm:bottom-20 left-0 w-full overflow-hidden z-30">
-          <p className="animate-marquee text-sm sm:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap">
-            NOTE: Online service is available only in Pakistan, and home tuition
-            is offered only in Faisalabad.
-          </p>
+          <div className="w-[200%] animate-marquee">
+            <p className="text-sm sm:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap inline-block">
+              NOTE: Online service is available only in Pakistan, and home tuition
+              is offered only in Faisalabad.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {/* Added non-breaking spaces for spacing between repetitions */}
+              NOTE: Online service is available only in Pakistan, and home tuition
+              is offered only in Faisalabad.
+            </p>
+          </div>
         </div>
       )}
 
@@ -104,16 +109,14 @@ export default function HomeSection() {
       <style jsx>{`
         @keyframes marquee {
           0% {
-            transform: translateX(100vw);
+            transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
         }
         .animate-marquee {
-          animation: marquee 25s linear infinite;
-          display: inline-block;
-          min-width: 100%;
+          animation: marquee 20s linear infinite;
         }
       `}</style>
     </section>
