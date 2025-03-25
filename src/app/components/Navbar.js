@@ -58,7 +58,7 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-10 select-none">
           {[
             { id: "home", label: "Home" },
-            { id: "about", label: "About Me & Courses" },
+            { id: "about", label: "About Me & Courses" }, // Changed to match the section ID
             { id: "hire", label: "Hire Me" },
             { id: "faqs", label: "FAQs" },
             { id: "access", label: "Get Access" },
@@ -97,7 +97,7 @@ export default function Navbar() {
           <ul className="flex flex-col items-center space-y-2 py-4 w-full">
             {[
               { id: "home", label: "Home" },
-              { id: "about", label: "About Me & Courses" },
+              { id: "about", label: "About Me & Courses" }, // Changed to match the section ID
               { id: "hire", label: "Hire Me" },
               { id: "faqs", label: "FAQs" },
               { id: "access", label: "Get Access" },
