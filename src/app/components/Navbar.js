@@ -1,36 +1,45 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // If using Next.js
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname?.(); // Optional for Next.js
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Smooth Scrolling Function
+  // Enhanced Smooth Scrolling Function
   const handleSmoothScroll = (event, sectionId) => {
     event.preventDefault();
+    
+    // If we're not on the home page, navigate there first
+    if (pathname && pathname !== "/") {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
+      const headerOffset = 80; // Adjust this value if needed
+      const elementPosition = targetSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
-        top: targetSection.offsetTop - 80, // Adjust for fixed navbar height
-        behavior: "smooth",
+        top: offsetPosition,
+        behavior: "smooth"
       });
-      setIsMenuOpen(false); // Close mobile menu after clicking
+      
+      // Update URL hash without jumping
+      window.history.pushState(null, null, `#${sectionId}`);
+      setIsMenuOpen(false);
+    } else {
+      // Fallback for when element isn't found
+      window.location.href = `/#${sectionId}`;
     }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  // Rest of your code remains the same...
   return (
     <nav
       className="bg-blue-600 p-4 fixed w-full top-0 z-50 shadow-lg select-none"
@@ -58,7 +67,7 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-10 select-none">
           {[
             { id: "home", label: "Home" },
-            { id: "about", label: "About Me & Courses" }, // Changed to match the section ID
+            { id: "about", label: "About Me & Courses" },
             { id: "hire", label: "Hire Me" },
             { id: "faqs", label: "FAQs" },
             { id: "access", label: "Get Access" },
@@ -97,7 +106,7 @@ export default function Navbar() {
           <ul className="flex flex-col items-center space-y-2 py-4 w-full">
             {[
               { id: "home", label: "Home" },
-              { id: "about", label: "About Me & Courses" }, // Changed to match the section ID
+              { id: "about", label: "About Me & Courses" },
               { id: "hire", label: "Hire Me" },
               { id: "faqs", label: "FAQs" },
               { id: "access", label: "Get Access" },
