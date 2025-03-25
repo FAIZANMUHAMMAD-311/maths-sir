@@ -26,13 +26,12 @@ export default function HomeSection() {
           Unlock Your Math Potential
         </h1>
 <p
-  className="mt-6 text-base sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto text-justify"
+  className="mt-6 text-base sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto text-justify sm:text-justify leading-relaxed"
   data-aos="fade-left"
   data-aos-duration="1000"
   data-aos-delay="200"
 >
   Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
-  <span className="block text-center mt-2">Tailored to your needs.</span>
 </p>
 
         <div
