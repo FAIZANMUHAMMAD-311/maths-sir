@@ -49,7 +49,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl mx-auto flex justify-between items-center w-full px-4">
         <div className="flex items-center space-x-3">
           <img
-            src="/images/study.png"
+            src="/images/teacher.png"
             alt="Logo"
             className="h-12 w-12"
             draggable="false"
