@@ -25,14 +25,14 @@ export default function HomeSection() {
         >
           Unlock Your Math Potential
         </h1>
-<p
-  className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto"
-  data-aos="fade-left"
-  data-aos-duration="1000"
-  data-aos-delay="200"
->
- Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
-    </p>
+        <p
+          className="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          Expert tutoring in matric math & physics, intermediate math & statistics, and entrance exam math prep. Build a strong foundation with structured, engaging lessons tailored to your needs.
+        </p>
         <div
           className="mt-12 flex flex-col sm:flex-row justify-center gap-4"
           data-aos="fade-up"
@@ -57,10 +57,12 @@ export default function HomeSection() {
       {/* Marquee Note */}
       {showNote && (
         <div className="absolute bottom-20 left-0 w-full overflow-hidden z-30">
-          <p className="animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap">
-            NOTE: Online service is available only in Pakistan, and home tuition
-            is offered only in Faisalabad.
-          </p>
+          <div className="w-full flex justify-center">
+            <p className="animate-marquee text-base sm:text-lg text-gray-300 opacity-90 font-medium whitespace-nowrap">
+              NOTE: Online service is available only in Pakistan, and home tuition
+              is offered only in Faisalabad.
+            </p>
+          </div>
         </div>
       )}
 
@@ -99,18 +101,18 @@ export default function HomeSection() {
       <style jsx>{`
         @keyframes marquee {
           0% {
-            transform: translateX(100vw); /* Start outside the viewport */
+            transform: translateX(100%);
           }
           100% {
-            transform: translateX(-100%); /* Move across the screen */
+            transform: translateX(-100%);
           }
         }
         .animate-marquee {
           animation: marquee 25s linear infinite;
-          display: inline-block;
-          min-width: 100%;
+          white-space: nowrap;
+          min-width: max-content;
         }
       `}</style>
     </section>
   );
-}                                                                  
+}
