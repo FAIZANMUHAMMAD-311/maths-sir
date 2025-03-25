@@ -109,40 +109,43 @@ export default function HomeSection() {
         </span>
       </a>
 
-      <style jsx>{`
-        .marquee-container {
-          display: flex;
-          overflow: hidden;
-          white-space: nowrap;
-          width: 100%;
-        }
+  <style jsx>{`
+    .marquee-container {
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+    }
 
-        .marquee-text {
-          display: inline-block;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.9);
-          font-weight: 500;
-          animation: marquee 20s linear infinite;
-          min-width: 100%;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
+    .marquee-text {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      animation: marquee 20s linear infinite;
+      min-width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-        @keyframes marquee {
-          from {
-            transform: translateX(100%);
-          }
-          to {
-            transform: translateX(-100%);
-          }
-        }
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
 
-        @media (max-width: 640px) {
-          .text-center p {
-            text-align: justify;
-          }
-        }
-      `}</style>
+    @media (max-width: 640px) {
+      .text-center p {
+        text-align: justify;
+        text-align-last: center;
+        hyphens: auto;
+        word-spacing: -0.05em;
+      }
+    }
+  `}</style>
     </section>
   );
 }
