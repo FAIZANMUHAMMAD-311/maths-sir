@@ -8,6 +8,18 @@ export default function HomeSection() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Smooth scroll function
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -39,12 +51,14 @@ export default function HomeSection() {
         >
           <a
             href="#hire"
+            onClick={(e) => handleSmoothScroll(e, '#hire')}
             className="bg-white text-blue-600 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-gray-100 transition duration-300 shadow-md hover:shadow-lg"
           >
             Hire Me
           </a>
           <a
             href="#access"
+            onClick={(e) => handleSmoothScroll(e, '#access')}
             className="bg-transparent border-2 border-white px-5 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 shadow-md hover:shadow-lg"
           >
             Get Access
