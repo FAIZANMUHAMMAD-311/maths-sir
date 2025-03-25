@@ -34,7 +34,7 @@ export default function HomeSection() {
           Unlock Your Math Potential
         </h1>
         <p
-          className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed text-justify sm:text-left"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="200"
