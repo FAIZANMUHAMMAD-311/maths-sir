@@ -26,7 +26,7 @@ export default function HomeSection() {
           Unlock Your Math Potential
         </h1>
         <p
-          className="mt-6 text-base sm:text-xl md:text-2xl text-gray-200 max-w-xl mx-auto text-justify sm:text-center"
+          className="mt-6 text-base sm:text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto text-justify"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="200"
