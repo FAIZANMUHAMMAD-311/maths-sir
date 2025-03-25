@@ -34,7 +34,7 @@ export default function HomeSection() {
           Unlock Your Math Potential
         </h1>
         <p
-          className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed text-justify sm:text-left"
+          className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -134,6 +134,12 @@ export default function HomeSection() {
           }
           to {
             transform: translateX(-100%);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .text-center p {
+            text-align: justify;
           }
         }
       `}</style>
