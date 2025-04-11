@@ -5,13 +5,39 @@ const HireMe = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    phone: '+92',
     message: '',
   });
   const buttonRef = useRef(null);
+  const emailRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleEmailFocus = () => {
+    if (!formData.email.includes('@')) {
+      setFormData({ ...formData, email: formData.email + '@gmail.com' });
+      // Move cursor before @ symbol
+      setTimeout(() => {
+        const emailInput = emailRef.current;
+        const atIndex = emailInput.value.indexOf('@');
+        emailInput.setSelectionRange(atIndex, atIndex);
+      }, 0);
+    }
+  };
+
+  const handlePhoneFocus = (e) => {
+    if (e.target.value === '') {
+      setFormData({ ...formData, phone: '+92' });
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    // Prevent removing +92 from the start
+    if (e.target.value.startsWith('+92') || e.target.value === '') {
+      setFormData({ ...formData, phone: e.target.value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -59,7 +85,7 @@ const HireMe = () => {
 
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({ name: '', email: '', phone: '', message: '' });
+          setFormData({ name: '', email: '', phone: '+92', message: '' });
           button.disabled = false;
           button.style.opacity = '1';
           button.style.boxShadow = 'none';
@@ -117,18 +143,21 @@ const HireMe = () => {
           <input
             type="email"
             id="email"
-            placeholder="Your Email"
+            ref={emailRef}
+            placeholder="yourname@gmail.com"
             value={formData.email}
             onChange={handleChange}
+            onFocus={handleEmailFocus}
             className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
             required
           />
           <input
             type="tel"
             id="phone"
-            placeholder="Your Phone Number (e.g., +92XXXXXXXXXX)"
+            placeholder="+923001234567"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={handlePhoneChange}
+            onFocus={handlePhoneFocus}
             className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
             pattern="\+92\d{10}"
             required
