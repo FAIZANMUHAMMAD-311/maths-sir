@@ -4,8 +4,8 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'faizanwarissheikhalpha2626@gmail.com', // Your Gmail address
-    pass: 'nipz zgkg hyok bttk', // Your Gmail app password
+    user: 'ibrarthemathematician@gmail.com', // Your Gmail address
+    pass: 'uesk yezi adsa jyva', // Your Gmail app password
   },
 });
 
@@ -25,8 +25,8 @@ export async function POST(request) {
 
     // Email content
     const mailOptions = {
-      from: 'faizanwarissheikhalpha2626@gmail.com',
-      to: 'faizanwarissheikhalpha2626@gmail.com', // Recipient email
+      from: 'ibrarthemathematician@gmail.com',
+      to: 'ibrarthemathematician@gmail.com', // Recipient email
       subject: 'New Hire Me Form Submission',
       text: `
         Name: ${name}
