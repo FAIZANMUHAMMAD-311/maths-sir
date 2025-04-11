@@ -1,4 +1,4 @@
-}import { google } from 'googleapis';
+import { google } from 'googleapis';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -17,7 +17,9 @@ const credentials = {
   client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL,
   universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
 };
-console.log(credentials)
+
+console.log(credentials);
+
 // Authenticate using the service account
 const auth = new google.auth.GoogleAuth({
   credentials,
@@ -28,12 +30,11 @@ const drive = google.drive({ version: 'v3', auth });
 
 export async function POST(request) {
   try {
-    // Parse the request body
     const { email } = await request.json();
     console.log(email);
-    const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID; // Get folder ID from environment variable
 
-    // Validate input
+    const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
+
     if (!email) {
       return new Response(JSON.stringify({ message: 'Email is required' }), {
         status: 400,
@@ -41,26 +42,27 @@ export async function POST(request) {
       });
     }
 
-    // List files in the folder (optional, for debugging)
     const response = await drive.files.list({
-      q: '${process.env.GOOGLE_DRIVE_FOLDER_ID}' in parents,
+      q: `'${folderId}' in parents`,
     });
     console.log(response.data.files);
 
-    // Grant access to the folder
     await drive.permissions.create({
       fileId: folderId,
       requestBody: {
-        role: 'reader', // Change to 'writer' if edit access is needed
+        role: 'reader',
         type: 'user',
         emailAddress: email,
       },
     });
 
-    return new Response(JSON.stringify({ message: Access granted to ${email} }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({ message: `Access granted to ${email}` }),
+      {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   } catch (error) {
     console.error('Error granting access:', error);
     return new Response(JSON.stringify({ message: 'Failed to grant access' }), {
@@ -68,4 +70,4 @@ export async function POST(request) {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-} 
+}
