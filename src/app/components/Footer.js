@@ -83,7 +83,7 @@ export default function Footer() {
 
               {/* Facebook Button */}
               <a
-                href="https://www.facebook.com/yourfacebookpage"
+                href="https://www.facebook.com/share/1C8JJJDGXf/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-800 text-white px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2 shadow-lg transition-all duration-300 hover:scale-105"
@@ -98,16 +98,18 @@ export default function Footer() {
 
               {/* TikTok Button */}
               <a
-                href="https://www.tiktok.com/@yourtiktokhandle"
+                href="https://www.tiktok.com/@ibrarthemathematician?_t=ZS-8v3u5UDECzn&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-black text-white px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2 shadow-lg transition-all duration-300 hover:scale-105"
               >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg"
-                  alt="TikTok Logo"
-                  className="w-5 h-5"
-                />
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 448 512"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.1A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                </svg>
                 <span className="text-sm font-semibold">TikTok</span>
               </a>
 
