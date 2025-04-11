@@ -65,7 +65,7 @@ export default function Footer() {
           {/* Right Column: Social Links (stays full width on mobile) */}
           <div className="flex-1 md:max-w-[220px]">
             <h3 className="text-lg font-semibold mb-4">Social Links</h3>
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 gap-4">
               {/* YouTube Button */}
               <a
                 href="https://www.youtube.com/@IbrarTheMathematician"
@@ -79,6 +79,36 @@ export default function Footer() {
                   className="w-5 h-5"
                 />
                 <span className="text-sm font-semibold">YouTube</span>
+              </a>
+
+              {/* Facebook Button */}
+              <a
+                href="https://www.facebook.com/yourfacebookpage"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-800 text-white px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2 shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                  alt="Facebook Logo"
+                  className="w-5 h-5"
+                />
+                <span className="text-sm font-semibold">Facebook</span>
+              </a>
+
+              {/* TikTok Button */}
+              <a
+                href="https://www.tiktok.com/@yourtiktokhandle"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black text-white px-4 py-2 rounded-full flex items-center justify-center md:justify-start gap-2 shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg"
+                  alt="TikTok Logo"
+                  className="w-5 h-5"
+                />
+                <span className="text-sm font-semibold">TikTok</span>
               </a>
 
               {/* LinkedIn Button */}
