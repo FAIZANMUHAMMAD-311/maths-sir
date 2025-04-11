@@ -1,60 +1,93 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const HireMe = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '+92',
+    phone: '+92           ', // Using non-breaking spaces for the blanks
     message: '',
   });
   const buttonRef = useRef(null);
   const emailRef = useRef(null);
+  const phoneRef = useRef(null);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-
-  const handleEmailFocus = () => {
-    if (!formData.email.includes('@')) {
-      setFormData({ ...formData, email: formData.email + '@gmail.com' });
-      // Move cursor before @ symbol
+  // Handle email input - keep @gmail.com fixed
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    const atIndex = value.indexOf('@');
+    
+    if (atIndex === -1) {
+      // If @ is deleted, restore @gmail.com
+      setFormData({ ...formData, email: value + '@gmail.com' });
+      // Move cursor before @
       setTimeout(() => {
-        const emailInput = emailRef.current;
-        const atIndex = emailInput.value.indexOf('@');
-        emailInput.setSelectionRange(atIndex, atIndex);
+        if (emailRef.current) {
+          emailRef.current.setSelectionRange(value.length, value.length);
+        }
       }, 0);
+    } else {
+      // Only allow changes before @
+      const userPart = value.substring(0, atIndex);
+      setFormData({ ...formData, email: userPart + '@gmail.com' });
     }
   };
 
-  const handlePhoneFocus = (e) => {
-    if (e.target.value === '') {
-      setFormData({ ...formData, phone: '+92' });
-    }
-  };
-
+  // Handle phone input - keep +92 fixed
   const handlePhoneChange = (e) => {
-    // Prevent removing +92 from the start
-    if (e.target.value.startsWith('+92') || e.target.value === '') {
-      setFormData({ ...formData, phone: e.target.value });
+    const value = e.target.value;
+    
+    // Ensure +92 stays and only allow digits after
+    if (value.startsWith('+92')) {
+      // Filter out non-digits after +92
+      const digits = value.substring(3).replace(/\D/g, '');
+      const formattedPhone = '+92' + digits.padEnd(10, ' '); // Using non-breaking space
+      setFormData({ ...formData, phone: formattedPhone });
+    } else if (value.length < 3) {
+      // If user tries to delete +92, restore it
+      setFormData({ ...formData, phone: '+92           ' });
+    }
+  };
+
+  // Set cursor position in email field
+  const handleEmailFocus = () => {
+    if (emailRef.current) {
+      const atIndex = formData.email.indexOf('@');
+      emailRef.current.setSelectionRange(atIndex, atIndex);
+    }
+  };
+
+  // Set cursor position in phone field
+  const handlePhoneFocus = () => {
+    if (phoneRef.current) {
+      // Position cursor after +92
+      const digitsEntered = formData.phone.substring(3).replace(/ /g, '').length;
+      phoneRef.current.setSelectionRange(3 + digitsEntered, 3 + digitsEntered);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Remove non-breaking spaces before validation
+    const phoneToValidate = formData.phone.replace(/ /g, '');
     const phonePattern = /^\+92\d{10}$/;
 
-    if (phonePattern.test(formData.phone)) {
+    if (phonePattern.test(phoneToValidate)) {
       setIsSubmitted(true);
 
       try {
-        // Send form data to the API route
+        // Send form data to the API route (with cleaned phone)
+        const dataToSend = {
+          ...formData,
+          phone: phoneToValidate
+        };
+        
         const response = await fetch('/api/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dataToSend),
         });
 
         if (!response.ok) {
@@ -66,31 +99,38 @@ const HireMe = () => {
 
         // Button animation
         const button = buttonRef.current;
-        button.disabled = true;
-        let angle = 0,
-          direction = 1,
-          scale = 1;
-        const swingInterval = setInterval(() => {
-          angle += direction * 10;
-          scale = scale === 1 ? 1.1 : 1;
-          button.style.transform = `rotate(${angle}deg) scale(${scale})`;
-          if (angle >= 10 || angle <= -10) direction *= -1;
-        }, 120);
+        if (button) {
+          button.disabled = true;
+          let angle = 0,
+            direction = 1,
+            scale = 1;
+          const swingInterval = setInterval(() => {
+            angle += direction * 10;
+            scale = scale === 1 ? 1.1 : 1;
+            button.style.transform = `rotate(${angle}deg) scale(${scale})`;
+            if (angle >= 10 || angle <= -10) direction *= -1;
+          }, 120);
 
-        setTimeout(() => {
-          clearInterval(swingInterval);
-          button.style.transform = 'rotate(0deg) scale(1)';
-          button.style.opacity = '0.7';
-        }, 2500);
+          setTimeout(() => {
+            clearInterval(swingInterval);
+            button.style.transform = 'rotate(0deg) scale(1)';
+            button.style.opacity = '0.7';
+          }, 2500);
 
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({ name: '', email: '', phone: '+92', message: '' });
-          button.disabled = false;
-          button.style.opacity = '1';
-          button.style.boxShadow = 'none';
-          button.style.transform = 'scale(1)';
-        }, 8000);
+          setTimeout(() => {
+            setIsSubmitted(false);
+            setFormData({ 
+              name: '', 
+              email: '', 
+              phone: '+92           ', 
+              message: '' 
+            });
+            button.disabled = false;
+            button.style.opacity = '1';
+            button.style.boxShadow = 'none';
+            button.style.transform = 'scale(1)';
+          }, 8000);
+        }
       } catch (error) {
         console.error('Error:', error);
         alert('Failed to send email. Please try again later.');
@@ -136,41 +176,45 @@ const HireMe = () => {
             id="name"
             placeholder="Your Name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
             className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
             required
           />
+          
           <input
             type="email"
             id="email"
             ref={emailRef}
-            placeholder="yourname@gmail.com"
+            placeholder="username@gmail.com"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             onFocus={handleEmailFocus}
             className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
             required
           />
+          
           <input
             type="tel"
             id="phone"
-            placeholder="+923001234567"
+            ref={phoneRef}
+            placeholder="+92           "
             value={formData.phone}
             onChange={handlePhoneChange}
             onFocus={handlePhoneFocus}
-            className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
-            pattern="\+92\d{10}"
+            className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white font-mono"
             required
           />
+          
           <textarea
             id="message"
             placeholder="Your Message"
             value={formData.message}
-            onChange={handleChange}
+            onChange={(e) => setFormData({...formData, message: e.target.value})}
             className="w-full p-4 rounded-lg text-gray-900 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
             rows="5"
             required
           />
+          
           <button
             ref={buttonRef}
             type="submit"
