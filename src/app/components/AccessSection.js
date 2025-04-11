@@ -4,15 +4,16 @@ import { useState, useRef } from "react";
 
 export default function AccessSection() {
   const [formStatus, setFormStatus] = useState(null);
+  const [username, setUsername] = useState("");
   const buttonRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.accessEmail.value;
+    const email = `${username}@gmail.com`;
 
     // Validate email format
-    if (!/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)) {
-      alert("Please enter a valid email address.");
+    if (!/^[a-z0-9._%+-]+$/.test(username)) {
+      alert("Please enter a valid Gmail username.");
       return;
     }
 
@@ -22,12 +23,10 @@ export default function AccessSection() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }), // Send the email in the request body
+        body: JSON.stringify({ email }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send email");
-      }
+      if (!response.ok) throw new Error("Failed to send email");
 
       const result = await response.json();
       console.log(result.message);
@@ -54,7 +53,7 @@ export default function AccessSection() {
 
       setTimeout(() => {
         setFormStatus(null);
-        e.target.reset();
+        setUsername("");
         button.disabled = false;
         button.style.opacity = "1";
         button.style.boxShadow = "none";
@@ -72,37 +71,30 @@ export default function AccessSection() {
       className="min-h-screen flex items-center justify-center bg-blue-600 text-white select-none px-6 py-16 md:py-24"
     >
       <div className="w-full max-w-3xl text-center">
-        <h2
-          className="text-4xl md:text-5xl font-bold"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          Get Access to Content
-        </h2>
-        <p
-          className="mt-8 text-lg md:text-xl text-gray-200 mx-auto max-w-2xl"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="200"
-        >
-          Register with your email to access exclusive study materials on Google
-          Drive.
+        <h2 className="text-4xl md:text-5xl font-bold">Get Access to Content</h2>
+        <p className="mt-8 text-lg md:text-xl text-gray-200 mx-auto max-w-2xl">
+          Register with your Gmail to access exclusive study materials on Google Drive.
         </p>
         <form
           onSubmit={handleSubmit}
           className="mt-12 max-w-lg mx-auto space-y-6"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-          data-aos-delay="400"
         >
-          <input
-            type="email"
-            name="accessEmail"
-            placeholder="Your Email"
-            className="bg-white w-full p-4 rounded-lg text-gray-900 shadow-md"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            required
-          />
+          <div className="relative">
+            <input
+              type="text"
+              name="accessUsername"
+              value={username}
+              onChange={(e) => setUsername(e.target.value.toLowerCase())}
+              placeholder="yourname"
+              className="bg-white w-full p-4 pr-28 rounded-lg text-gray-900 shadow-md"
+              pattern="^[a-z0-9._%+-]+$"
+              title="Only valid Gmail username characters allowed."
+              required
+            />
+            <span className="absolute top-1/2 -translate-y-1/2 right-4 text-gray-600 pointer-events-none text-base sm:text-lg">
+              @gmail.com
+            </span>
+          </div>
           <button
             ref={buttonRef}
             type="submit"
@@ -114,7 +106,7 @@ export default function AccessSection() {
             }`}
           >
             {formStatus === "success"
-              ? "Access Granted ✅ | Check Your Email 📩"
+              ? "Access Granted ✅ | Check Your Gmail 📩"
               : "Register"}
           </button>
         </form>
