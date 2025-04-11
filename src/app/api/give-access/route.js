@@ -1,4 +1,4 @@
-import { google } from 'googleapis';
+}import { google } from 'googleapis';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -43,7 +43,7 @@ export async function POST(request) {
 
     // List files in the folder (optional, for debugging)
     const response = await drive.files.list({
-      q: `'${process.env.GOOGLE_DRIVE_FOLDER_ID}' in parents`,
+      q: '${process.env.GOOGLE_DRIVE_FOLDER_ID}' in parents,
     });
     console.log(response.data.files);
 
@@ -57,7 +57,7 @@ export async function POST(request) {
       },
     });
 
-    return new Response(JSON.stringify({ message: `Access granted to ${email}` }), {
+    return new Response(JSON.stringify({ message: Access granted to ${email} }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -68,17 +68,4 @@ export async function POST(request) {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+} 
