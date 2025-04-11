@@ -42,7 +42,7 @@ export default function AccessSection() {
       const swingInterval = setInterval(() => {
         angle += direction * 10;
         scale = scale === 1 ? 1.1 : 1;
-        button.style.transform = rotate(${angle}deg) scale(${scale});
+        button.style.transform = `rotate(${angle}deg) scale(${scale})`;
         if (angle >= 10 || angle <= -10) direction *= -1;
       }, 120);
 
@@ -107,11 +107,11 @@ export default function AccessSection() {
             ref={buttonRef}
             type="submit"
             disabled={formStatus === "success"}
-            className={w-full px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ${
+            className={`w-full px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ${
               formStatus === "success"
                 ? "bg-green-500 text-white shadow-[0_0_15px_rgba(40,167,69,0.8)]"
                 : "bg-white text-blue-600 hover:bg-gray-100"
-            }}
+            }`}
           >
             {formStatus === "success"
               ? "Access Granted ✅ | Check Your Email 📩"
@@ -121,3 +121,4 @@ export default function AccessSection() {
       </div>
     </section>
   );
+}
